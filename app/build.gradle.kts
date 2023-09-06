@@ -53,6 +53,9 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+    //coroutines components added
+    //https://github.com/Kotlin/kotlinx.coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     //navigation components added
     //https://developer.android.com/jetpack/androidx/releases/navigation
     val nav_version = "2.7.1"
@@ -90,5 +93,40 @@ dependencies {
     //https://developer.android.com/develop/ui/views/theming/look-and-feel
     //https://github.com/material-components/material-components-android/blob/master/docs/getting-started.md
     implementation ("com.google.android.material:material:1.9.0")
+
+    //retrofit components added
+    //https://github.com/square/retrofit/tree/master
+    //https://github.com/square/retrofit/tree/master/retrofit-converters/gson
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    //https://github.com/square/retrofit/tree/master/retrofit-adapters/rxjava3
+    //https://github.com/ReactiveX/RxJava for latest version
+    implementation ("com.squareup.retrofit2:adapter-rxjava3:2.9.0")
+
+
+    //rxJava components added
+    //https://github.com/ReactiveX/RxJava
+    implementation ("io.reactivex.rxjava3:rxjava:3.1.7")
+    //https://github.com/ReactiveX/RxAndroid
+    implementation ("io.reactivex.rxjava3:rxandroid:3.0.2")
+
+
+    //Glide components added
+    //https://github.com/bumptech/glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+
+    //Selecting Colors with the Palette API
+   //https://developer.android.com/develop/ui/views/graphics/palette-colors
+    implementation("com.android.support:palette-v7:28.0.0")
+    implementation ("com.android.support:design:28.0.0")
+
+    //https://developer.android.com/jetpack/androidx/releases/preference
+    implementation("androidx.preference:preference-ktx:1.2.1")
+
+    //https://androidx.tech/artifacts/legacy/legacy-support-v4/
+    implementation ("androidx.legacy:legacy-support-v4:1.0.0")
+
+
 
 }
