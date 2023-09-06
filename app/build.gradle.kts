@@ -24,6 +24,10 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+    //https://developer.android.com/jetpack/androidx/releases/databinding
+    buildFeatures {
+        dataBinding = true
+    }
 
     buildTypes {
         release {
@@ -41,6 +45,7 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
 }
 
 dependencies {
@@ -54,6 +59,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     //coroutines components added
+    // threading ops.
     //https://github.com/Kotlin/kotlinx.coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     //navigation components added
@@ -74,6 +80,7 @@ dependencies {
     testImplementation("androidx.arch.core:core-testing:$arch_version")
 
     //Room components added
+    //Sql and Local database section
     //https://developer.android.com/jetpack/androidx/releases/room
     val room_version = "2.5.2"
 
@@ -90,11 +97,13 @@ dependencies {
 
 
     //material reference
+    //design ops.
     //https://developer.android.com/develop/ui/views/theming/look-and-feel
     //https://github.com/material-components/material-components-android/blob/master/docs/getting-started.md
     implementation ("com.google.android.material:material:1.9.0")
 
     //retrofit components added
+    //  to exchange data with web as synchronize or asynchronous
     //https://github.com/square/retrofit/tree/master
     //https://github.com/square/retrofit/tree/master/retrofit-converters/gson
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
@@ -112,15 +121,18 @@ dependencies {
 
 
     //Glide components added
+    //to download and to show picture from web (alternative picasso)
     //https://github.com/bumptech/glide
     implementation ("com.github.bumptech.glide:glide:4.16.0")
 
 
     //Selecting Colors with the Palette API
+    // After analyze background and give color advice to developer
    //https://developer.android.com/develop/ui/views/graphics/palette-colors
     implementation("com.android.support:palette-v7:28.0.0")
     implementation ("com.android.support:design:28.0.0")
 
+    // user preferences are remembered
     //https://developer.android.com/jetpack/androidx/releases/preference
     implementation("androidx.preference:preference-ktx:1.2.1")
 
