@@ -5,8 +5,11 @@ plugins {
     //Safe args Added, to be sure android.useAndroidX=true in your gradle.properties file
 
     // kotlin("kapt") version "1.9.10" kapt plugins added
-    //id("org.jetbrains.kotlin.kapt")
-    id("com.google.devtools.ksp")
+    id("org.jetbrains.kotlin.kapt")
+    //Note: Data Binding also requires kapt to be enabled in the module.
+    // In modules where Data Binding is used, kapt can not be removed.
+    //id("com.google.devtools.ksp")
+
 }
 
 
@@ -88,9 +91,9 @@ dependencies {
     annotationProcessor("androidx.room:room-compiler:$room_version")
     // To use Kotlin annotation processing tool (kapt)
     //https://kotlinlang.org/docs/kapt.html#annotation-processor-arguments
-    //kapt("androidx.room:room-compiler:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
     //https://developer.android.com/build/migrate-to-ksp
-    ksp("androidx.room:room-compiler:$room_version")
+    //ksp("androidx.room:room-compiler:$room_version")
 
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$room_version")

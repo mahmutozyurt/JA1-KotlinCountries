@@ -8,7 +8,10 @@
     android:layout_height="match_parent"
     tools:context=".FeedFragment">
 
+
+<!--    The button is used for test-->
     <Button
+        android:id="@+id/fragmentBtn"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="To Country Fragment"
