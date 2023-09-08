@@ -64,7 +64,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     //navigation components added
     //https://developer.android.com/jetpack/androidx/releases/navigation
-    val nav_version = "2.7.1"
+    val nav_version = "2.6.0"
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
