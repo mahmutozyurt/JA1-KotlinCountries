@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.mtoz147.ja1_kotlincountries.R
 import com.mtoz147.ja1_kotlincountries.databinding.FragmentFeedBinding
+import com.mtoz147.ja1_kotlincountries.model.Country
 
 class FeedFragment : Fragment() {
     private lateinit var binding: FragmentFeedBinding
