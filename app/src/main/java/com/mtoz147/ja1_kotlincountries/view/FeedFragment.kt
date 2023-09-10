@@ -6,12 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mtoz147.ja1_kotlincountries.R
+import com.mtoz147.ja1_kotlincountries.adapter.CountryAdapter
 import com.mtoz147.ja1_kotlincountries.databinding.FragmentFeedBinding
 import com.mtoz147.ja1_kotlincountries.model.Country
+import com.mtoz147.ja1_kotlincountries.viewmodel.FeedViewModel
 
 class FeedFragment : Fragment() {
     private lateinit var binding: FragmentFeedBinding
+    private lateinit var viewModel: FeedViewModel
+    private var countryAdapter=CountryAdapter(arrayListOf())
+    //to create viewmodel to inspect its data
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,11 +67,27 @@ class FeedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel=ViewModelProvider(this).get(FeedViewModel::class.java)
+        viewModel.refreshData()
 
+        binding.countryList.layoutManager=LinearLayoutManager(context)
+        //It will enable us to use the layout like the one in the 'item_country'.
+
+        binding.countryList.adapter=countryAdapter
 
 
     }
+    fun observeLiveData(){
+        viewModel.countries.observe(this, Observer {countries->
+        countries?.let {
+            binding.countryList.visibility=View.VISIBLE
+            countryAdapter.updateCountryList(countries)
+        }
 
+        })
+
+
+    }
 
 
 }
