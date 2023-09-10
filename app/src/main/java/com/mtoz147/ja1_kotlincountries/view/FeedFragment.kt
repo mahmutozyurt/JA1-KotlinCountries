@@ -1,16 +1,12 @@
-package com.mtoz147.ja1_kotlincountries
+package com.mtoz147.ja1_kotlincountries.view
 
 import android.os.Bundle
-import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
+import com.mtoz147.ja1_kotlincountries.R
 import com.mtoz147.ja1_kotlincountries.databinding.FragmentFeedBinding
 
 class FeedFragment : Fragment() {
@@ -28,7 +24,7 @@ class FeedFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        binding=DataBindingUtil.inflate(inflater,R.layout.fragment_feed,container,false)
+        binding=DataBindingUtil.inflate(inflater, R.layout.fragment_feed,container,false)
         val view=binding.root
 
         /*binding.fragmentBtn.setOnClickListener {
