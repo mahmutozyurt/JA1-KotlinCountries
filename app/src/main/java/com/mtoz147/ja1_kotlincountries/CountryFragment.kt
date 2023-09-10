@@ -11,6 +11,7 @@ import com.mtoz147.ja1_kotlincountries.databinding.FragmentCountryBinding
 
 class CountryFragment : Fragment() {
     private lateinit var binding: FragmentCountryBinding
+    private var countryUuid=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -23,11 +24,19 @@ class CountryFragment : Fragment() {
         // Inflate the layout for this fragment
         binding=DataBindingUtil.inflate(inflater,R.layout.fragment_country,container,false)
         //val countryInfo=requireArguments()?.getString("countryName")
-        val countryInfo=arguments?.getString("countryName")
-        binding.showTxt.text=countryInfo.toString()
-        //to get info from
+        /*val countryInfo=arguments?.getString("countryName")
+        binding.showTxt.text=countryInfo*/
+                //to get info from
+
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //the other safe args method is used
+       /*arguments?.let {
+            countryUuid=CountryFragmentArgs.fromBundle(it).countryUuid
+        }*/
+    }
 
 }

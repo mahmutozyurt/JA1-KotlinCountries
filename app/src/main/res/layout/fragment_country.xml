@@ -11,6 +11,19 @@
         tools:context=".CountryFragment">
 
 
+        <!--<TextView
+            android:id="@+id/textUuid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+
+            android:textSize="26sp"
+            android:textColor="#842828"
+             app:layout_constraintBottom_toTopOf="@+id/showTxt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/showTxt"
             android:layout_width="0dp"
@@ -21,5 +34,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textMerge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/showTxt" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

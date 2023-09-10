@@ -26,10 +26,11 @@
         <action
             android:id="@+id/action_countryFragment_to_feedFragment"
             app:destination="@id/feedFragment" />
-        <!--<argument
+        <argument
             android:name="countryUuid"
             app:argType="integer"
             android:defaultValue="0" />
-            argument section is turned to comment-->
+
+
     </fragment>
 </navigation>

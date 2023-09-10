@@ -65,6 +65,7 @@ dependencies {
     // threading ops.
     //https://github.com/Kotlin/kotlinx.coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+
     //navigation components added
     //https://developer.android.com/jetpack/androidx/releases/navigation
     val nav_version = "2.6.0"
@@ -83,7 +84,7 @@ dependencies {
     testImplementation("androidx.arch.core:core-testing:$arch_version")
 
     //Room components added
-    //Sql and Local database section
+    //Sqlite and Local database section
     //https://developer.android.com/jetpack/androidx/releases/room
     val room_version = "2.5.2"
 
@@ -132,6 +133,7 @@ dependencies {
     //Selecting Colors with the Palette API
     // After analyze background and give color advice to developer
    //https://developer.android.com/develop/ui/views/graphics/palette-colors
+    //noinspection GradleCompatible
     implementation("com.android.support:palette-v7:28.0.0")
     implementation ("com.android.support:design:28.0.0")
 

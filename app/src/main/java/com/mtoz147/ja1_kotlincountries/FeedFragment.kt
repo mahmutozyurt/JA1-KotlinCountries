@@ -31,16 +31,21 @@ class FeedFragment : Fragment() {
         binding=DataBindingUtil.inflate(inflater,R.layout.fragment_feed,container,false)
         val view=binding.root
         binding.fragmentBtn.setOnClickListener {
+            val action=FeedFragmentDirections.actionFeedFragmentToCountryFragment()
+            Navigation.findNavController(it).navigate(action)
+        //it.findNavController().navigate(action)
 
-            binding.editText.text.toString().takeIf { it.isNotBlank() }?.let {
+
+
+
+            /*binding.editText.text.toString().takeIf { it.isNotBlank() }?.let {
                 //to check null safety
-                println(binding.editText.text.toString()) //to check edittext value
+                //println(binding.editText.text.toString()) //to check edittext value
                 val bundle= bundleOf("countryName" to binding.editText.text.toString())
-
-                // data is taken from edittext to arguments
+                 // data is taken from edittext to arguments
                view.findNavController().navigate(R.id.action_feedFragment_to_countryFragment,bundle)
                 //data is passed from feed to country fragment
-            } ?: kotlin.run { Toast.makeText(activity,"Please enter country",Toast.LENGTH_LONG).show()}
+            } ?: kotlin.run { Toast.makeText(activity,"Please enter country",Toast.LENGTH_LONG).show()}*/
 
         /*if(!TextUtils.isEmpty(binding.editText.text.toString())){
                 val bundle= bundleOf("countryName" to binding.editText.text.toString())
@@ -56,6 +61,7 @@ class FeedFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
 
     }
