@@ -52,12 +52,12 @@
 
         </TextView>
         <TextView
-            android:id="@+id/countryCoordinates"
+            android:id="@+id/countryRegion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/countryCapital"
             android:layout_margin="7dp"
-            android:text="Country Coordinates"
+            android:text="Country Region"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="italic"
@@ -66,12 +66,12 @@
         </TextView>
 
         <TextView
-            android:id="@+id/countryCode"
+            android:id="@+id/countryCurrency"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/countryCoordinates"
+            android:layout_below="@id/countryRegion"
             android:layout_margin="7dp"
-            android:text="Country Code"
+            android:text="Country Currency"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="italic"
@@ -79,12 +79,12 @@
 
         </TextView>
         <TextView
-            android:id="@+id/countryInfoLink"
+            android:id="@+id/countryLanguages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/countryCode"
+            android:layout_below="@id/countryCurrency"
             android:layout_margin="7dp"
-            android:text="Country Info Link"
+            android:text="Country Languages"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="italic"
