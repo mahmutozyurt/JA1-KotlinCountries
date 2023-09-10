@@ -2,23 +2,46 @@
 
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FeedFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".FeedFragment">
 
 
-<!--    The button is used for test-->
-    <Button
-        android:id="@+id/fragmentBtn"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="To Country Fragment"
-    android:layout_gravity="center">
+        <!--    The button is used for test-->
+        <Button
+            android:id="@+id/fragmentBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="To Country Fragment"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
-</Button>
+        </Button>
 
-</FrameLayout>
+        <EditText
+
+            android:id="@+id/editText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            android:ems="10"
+            android:hint="Please Enter Country"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toTopOf="@+id/fragmentBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
