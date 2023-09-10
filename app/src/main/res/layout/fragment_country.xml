@@ -4,11 +4,94 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:id="@+id/frameLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.CountryFragment">
+      <!--  The TextView's position relative to the ImageView is specified,
+       whether it should be below, above,  beside or etc. it-->
+
+        <ImageView
+            android:id="@+id/countryImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="200dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitCenter"
+
+            android:layout_margin="5dp">
+
+        </ImageView>
+
+        <TextView
+            android:id="@+id/countryName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/countryImage"
+            android:layout_margin="7dp"
+            android:text="Country Name"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            android:layout_centerHorizontal="true">
+
+        </TextView>
+        <TextView
+            android:id="@+id/countryCapital"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/countryName"
+            android:layout_margin="7dp"
+            android:text="Country Capital Name"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:layout_centerHorizontal="true">
+
+        </TextView>
+        <TextView
+            android:id="@+id/countryCoordinates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/countryCapital"
+            android:layout_margin="7dp"
+            android:text="Country Coordinates"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:layout_centerHorizontal="true">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/countryCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/countryCoordinates"
+            android:layout_margin="7dp"
+            android:text="Country Code"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:layout_centerHorizontal="true">
+
+        </TextView>
+        <TextView
+            android:id="@+id/countryInfoLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/countryCode"
+            android:layout_margin="7dp"
+            android:text="Country Info Link"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:layout_centerHorizontal="true">
+
+        </TextView>
+
 
 
         <!--<TextView
@@ -45,5 +128,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/showTxt" />-->
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 </layout>
