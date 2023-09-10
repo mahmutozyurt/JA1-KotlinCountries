@@ -75,19 +75,37 @@ class FeedFragment : Fragment() {
 
         binding.countryList.adapter=countryAdapter
 
+        observeLiveData()
 
     }
     fun observeLiveData(){
-        viewModel.countries.observe(this, Observer {countries->
+        viewModel.countries.observe(viewLifecycleOwner, Observer {countries->
         countries?.let {
             binding.countryList.visibility=View.VISIBLE
             countryAdapter.updateCountryList(countries)
         }
 
         })
+        viewModel.countryError.observe(viewLifecycleOwner, Observer {error->
+            error.takeIf {it}?.let {
+                binding.countryError.visibility=View.VISIBLE
+            }?: kotlin.run { binding.countryError.visibility=View.GONE }
+
+            //classic if method
+            //if(it){
+            //binding.countryError.visibility=View.VISIBLE
+            // }else{binding.countryError.visibility=View.GONE}
 
 
+        })
+        viewModel.countryLoading.observe(viewLifecycleOwner, Observer { loading->
+            loading.takeIf {it}?.let {
+                binding.countryLoading.visibility=View.VISIBLE
+                binding.countryList.visibility=View.GONE
+                binding.countryError.visibility=View.GONE
+            }?: kotlin.run { binding.countryLoading.visibility=View.GONE }
+        })
     }
-
+    // We observed the created LiveData, If there were any changes, we acted accordingly.
 
 }
