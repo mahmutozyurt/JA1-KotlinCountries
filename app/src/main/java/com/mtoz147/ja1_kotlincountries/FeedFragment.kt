@@ -32,7 +32,7 @@ class FeedFragment : Fragment() {
         val view=binding.root
         binding.fragmentBtn.setOnClickListener {
 
-            /*binding.editText.text?.let {
+            binding.editText.text.toString().takeIf { it.isNotBlank() }?.let {
                 //to check null safety
                 println(binding.editText.text.toString()) //to check edittext value
                 val bundle= bundleOf("countryName" to binding.editText.text.toString())
@@ -41,14 +41,14 @@ class FeedFragment : Fragment() {
                view.findNavController().navigate(R.id.action_feedFragment_to_countryFragment,bundle)
                 //data is passed from feed to country fragment
             } ?: kotlin.run { Toast.makeText(activity,"Please enter country",Toast.LENGTH_LONG).show()}
-*/
-            if(!TextUtils.isEmpty(binding.editText.text.toString())){
+
+        /*if(!TextUtils.isEmpty(binding.editText.text.toString())){
                 val bundle= bundleOf("countryName" to binding.editText.text.toString())
                 // data is taken from edittext to arguments
                 it.findNavController().navigate(R.id.action_feedFragment_to_countryFragment,bundle) //view is changed
             }else{
                 Toast.makeText(activity,"Please enter country",Toast.LENGTH_LONG).show()
-            }
+            }*/
 
         }
         return view
