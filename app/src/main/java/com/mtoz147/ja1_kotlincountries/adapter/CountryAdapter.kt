@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.mtoz147.ja1_kotlincountries.R
 import com.mtoz147.ja1_kotlincountries.databinding.ItemCountryBinding
 import com.mtoz147.ja1_kotlincountries.model.Country
+import com.mtoz147.ja1_kotlincountries.view.FeedFragmentDirections
 
 class CountryAdapter(val countryList:ArrayList<Country>) :RecyclerView.Adapter<CountryAdapter.CountryViewHolder>(){
     class CountryViewHolder(var binding: ItemCountryBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -27,6 +29,13 @@ class CountryAdapter(val countryList:ArrayList<Country>) :RecyclerView.Adapter<C
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
         holder.binding.name.text=countryList[position].countryName
         holder.binding.region.text=countryList[position].countryRegion
+
+
+        //We are defining what will happen when a view is clicked.
+        holder.binding.root.setOnClickListener {
+        val action=FeedFragmentDirections.actionFeedFragmentToCountryFragment()
+        it.findNavController().navigate(action)
+        }
     }
     //swipe refresh func. has been applied.
     fun updateCountryList(newCountryList:List <Country>){
