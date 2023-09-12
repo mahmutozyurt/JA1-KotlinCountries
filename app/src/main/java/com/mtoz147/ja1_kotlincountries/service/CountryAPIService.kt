@@ -22,7 +22,7 @@ class CountryAPIService {
 fun getData():Single<List<Country>>{
     return api.getCountries()
 }
-}
+
 
     //What needs to be done is to create an object from this class and fetch the data.
 }

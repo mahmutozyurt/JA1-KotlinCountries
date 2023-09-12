@@ -75,6 +75,19 @@ class FeedFragment : Fragment() {
 
         binding.countryList.adapter=countryAdapter
 
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            //item country list will become invisible.
+            binding.countryList.visibility=View.GONE
+            binding.countryError.visibility=View.GONE
+            binding.countryLoading.visibility=View.VISIBLE// progress bar will become visible
+
+            viewModel.refreshData()
+
+            binding.swipeRefreshLayout.isRefreshing=false //small loading will become invisible
+
+
+        }
+
         observeLiveData()
 
     }
