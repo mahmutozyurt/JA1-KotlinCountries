@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mtoz147.ja1_kotlincountries.R
 import com.mtoz147.ja1_kotlincountries.databinding.ItemCountryBinding
 import com.mtoz147.ja1_kotlincountries.model.Country
+import com.mtoz147.ja1_kotlincountries.util.downloadFromUrl
+import com.mtoz147.ja1_kotlincountries.util.placeHolderProgressBar
 import com.mtoz147.ja1_kotlincountries.view.FeedFragmentDirections
 
 class CountryAdapter(val countryList:ArrayList<Country>) :RecyclerView.Adapter<CountryAdapter.CountryViewHolder>(){
@@ -36,6 +38,10 @@ class CountryAdapter(val countryList:ArrayList<Country>) :RecyclerView.Adapter<C
         val action=FeedFragmentDirections.actionFeedFragmentToCountryFragment()
         it.findNavController().navigate(action)
         }
+
+        holder.binding.imageView.downloadFromUrl(countryList[position].imageUrl,
+            placeHolderProgressBar(holder.binding.root.context))
+
     }
     //swipe refresh func. has been applied.
     fun updateCountryList(newCountryList:List <Country>){

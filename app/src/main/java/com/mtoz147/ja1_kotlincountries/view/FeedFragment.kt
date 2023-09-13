@@ -13,6 +13,7 @@ import com.mtoz147.ja1_kotlincountries.R
 import com.mtoz147.ja1_kotlincountries.adapter.CountryAdapter
 import com.mtoz147.ja1_kotlincountries.databinding.FragmentFeedBinding
 import com.mtoz147.ja1_kotlincountries.model.Country
+
 import com.mtoz147.ja1_kotlincountries.viewmodel.FeedViewModel
 
 class FeedFragment : Fragment() {
@@ -74,6 +75,12 @@ class FeedFragment : Fragment() {
         //It will enable us to use the layout like the one in the 'item_country'.
 
         binding.countryList.adapter=countryAdapter
+
+
+        /*//The created extension was used for testing
+        val myString="Hello"
+        myString.myExtension("world")*/
+
 
         binding.swipeRefreshLayout.setOnRefreshListener {
             //item country list will become invisible.
