@@ -1,6 +1,7 @@
 package com.mtoz147.ja1_kotlincountries.viewmodel
 
 import android.app.Application
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mtoz147.ja1_kotlincountries.model.Country
@@ -22,7 +23,7 @@ class FeedViewModel(application: Application) : BaseViewModel(application) {//co
     private val disposable=CompositeDisposable()
 
     private var customPreferences=CustomSharedPreferences(getApplication())
-
+    private var refreshTime=1*60*1000*1000*1000L //is used to convert from nanosecond to 1 minute
     //ViewModel is not affected by configuration changes; it has its own lifecycle.
     //https://developer.android.com/topic/libraries/architecture/livedata?hl=en
     val countries=MutableLiveData<List<Country>>()
@@ -31,6 +32,12 @@ class FeedViewModel(application: Application) : BaseViewModel(application) {//co
 
 
     fun refreshData(){
+        val updateTime=customPreferences.getTime()
+        if(updateTime!=null&&updateTime!=0L&&System.nanoTime()-updateTime<refreshTime){
+            getDataFromSQLite()
+        }else{
+            getDataFromAPI()
+        }
         getDataFromAPI()
 
 
@@ -49,6 +56,19 @@ class FeedViewModel(application: Application) : BaseViewModel(application) {//co
 
 
     }
+    fun refreshFromAPI(){
+        getDataFromAPI()
+    }
+
+
+    private fun getDataFromSQLite(){
+        countryLoading.value=true
+        launch {
+            val countries=CountryDatabase(getApplication()).countryDao().getAllCouuntries()
+            showCountries(countries)
+            Toast.makeText(getApplication(),"Countries From SQLite",Toast.LENGTH_LONG).show()
+        }
+    }
 private fun getDataFromAPI(){
 countryLoading.value=true
     disposable.add(
@@ -58,6 +78,7 @@ countryLoading.value=true
             .subscribeWith(object :DisposableSingleObserver<List<Country>>(){
                 override fun onSuccess(t: List<Country>) {
                         storeInSQLite(t)
+                    Toast.makeText(getApplication(),"Countries From API",Toast.LENGTH_LONG).show()
                 }
 
                 override fun onError(e: Throwable) {

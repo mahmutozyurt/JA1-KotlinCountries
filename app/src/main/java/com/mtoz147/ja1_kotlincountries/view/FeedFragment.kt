@@ -88,7 +88,7 @@ class FeedFragment : Fragment() {
             binding.countryError.visibility=View.GONE
             binding.countryLoading.visibility=View.VISIBLE// progress bar will become visible
 
-            viewModel.refreshData()
+            viewModel.refreshFromAPI()
 
             binding.swipeRefreshLayout.isRefreshing=false //small loading will become invisible
 
