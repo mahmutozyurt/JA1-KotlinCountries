@@ -49,6 +49,7 @@ android {
         jvmTarget = "17"
     }
 
+
 }
 
 dependencies {
@@ -93,9 +94,11 @@ dependencies {
     // To use Kotlin annotation processing tool (kapt)
     //https://kotlinlang.org/docs/kapt.html#annotation-processor-arguments
     //kapt("androidx.room:room-compiler:$room_version")
+    kapt ("androidx.databinding:databinding-compiler:8.1.1")
     //https://developer.android.com/build/migrate-to-ksp
+    //https://github.com/google/ksp/releases
     ksp("androidx.room:room-compiler:$room_version")
-
+    //ksp ("com.google.devtools.ksp:symbol-processor:1.6.0")
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$room_version")
 
