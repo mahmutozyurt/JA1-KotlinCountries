@@ -12,12 +12,13 @@ interface CountryDAO {
     @Insert
     suspend fun insertAll(vararg countries:Country):List<Long>
 
-    //Insert-> INSERT INTO
-
-    // suspend -> coroutine, pause&resume
-    //vararg->multiple country objects
-    //List<Long>->primary keys
-    // We are creating a list that will return a primary ID
+    /*
+Insert-> INSERT INTO
+suspend -> coroutine, pause&resume
+vararg->multiple country objects
+List<Long>->primary keys
+We are creating a list that will return a primary ID
+*/
     @Query("SELECT * FROM country") //Since we haven't changed the table name on the model , it is saved as the class name.
 
     suspend fun getAllCouuntries():List<Country>
