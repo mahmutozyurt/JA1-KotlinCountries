@@ -111,5 +111,9 @@ countryLoading.value=true
         customPreferences.saveTime(System.nanoTime())
     }
 
+    override fun onCleared() {
+        super.onCleared()
+        disposable.clear()
+    }
 
 }

@@ -10,6 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.mtoz147.ja1_kotlincountries.R
 import com.mtoz147.ja1_kotlincountries.databinding.FragmentCountryBinding
+import com.mtoz147.ja1_kotlincountries.util.downloadFromUrl
+import com.mtoz147.ja1_kotlincountries.util.placeHolderProgressBar
 import com.mtoz147.ja1_kotlincountries.viewmodel.CountryViewModel
 
 
@@ -39,14 +41,16 @@ class CountryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel=ViewModelProvider(this).get(CountryViewModel::class.java)
-        viewModel.getDataFromRoom()
-
-
         //the other safe args method is used
-       arguments?.let {
+        arguments?.let {
             countryUuid=CountryFragmentArgs.fromBundle(it).countryUuid
         }
+
+        viewModel=ViewModelProvider(this).get(CountryViewModel::class.java)
+        viewModel.getDataFromRoom(countryUuid)
+
+
+
         observeLiveData()
     }
     private fun observeLiveData(){
@@ -57,6 +61,12 @@ class CountryFragment : Fragment() {
             binding.countryCapital.text=country.countryCapital
             binding.countryCurrency.text=country.countryCurrency
             binding.countryLanguages.text=country.countryLanguages
+            //We are using the ImageView ID in the fragment_country.xml for image information.
+            context?.let {
+                binding.countryImage.downloadFromUrl(country.imageUrl, placeHolderProgressBar(it))
+            }
+
+
         }
 
     })

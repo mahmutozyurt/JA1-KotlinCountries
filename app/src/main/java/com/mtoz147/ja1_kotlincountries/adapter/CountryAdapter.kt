@@ -36,7 +36,8 @@ class CountryAdapter(val countryList:ArrayList<Country>) :RecyclerView.Adapter<C
         //We are defining what will happen when a view is clicked.
         holder.binding.root.setOnClickListener {
         val action=FeedFragmentDirections.actionFeedFragmentToCountryFragment()
-        it.findNavController().navigate(action)
+            action.countryUuid=countryList[position].uuid
+            it.findNavController().navigate(action)
         }
 
         holder.binding.imageView.downloadFromUrl(countryList[position].imageUrl,
