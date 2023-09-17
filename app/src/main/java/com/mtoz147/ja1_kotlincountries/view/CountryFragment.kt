@@ -56,7 +56,12 @@ class CountryFragment : Fragment() {
     private fun observeLiveData(){
     viewModel.countryLiveData.observe(viewLifecycleOwner, Observer {country->
         country?.let{
-            binding.countryName.text=country.countryName
+
+            binding.selectedCountry=it
+
+
+
+         /* binding.countryName.text=country.countryName
             binding.countryRegion.text=country.countryRegion
             binding.countryCapital.text=country.countryCapital
             binding.countryCurrency.text=country.countryCurrency
@@ -64,7 +69,8 @@ class CountryFragment : Fragment() {
             //We are using the ImageView ID in the fragment_country.xml for image information.
             context?.let {
                 binding.countryImage.downloadFromUrl(country.imageUrl, placeHolderProgressBar(it))
-            }
+
+            }*/
 
 
         }
